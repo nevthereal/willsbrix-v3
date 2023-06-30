@@ -2,7 +2,7 @@ import React from 'react'
 
 
 const heading = `text-4xl md:text-6xl font-black uppercase my-8`
-const underheading = `text-2xl md:text-4xl font-bold`
+const underheading = `text-xl md:text-2xl font-bold`
 const divisionInfo = `my-6`
 
 const Info = () => {
