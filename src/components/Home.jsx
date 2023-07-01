@@ -1,6 +1,6 @@
 import React from 'react'
-import Panel from './Panel'
-import {images} from '../images'
+import Panel from './product/Panel'
+import {images} from '../context'
 import Banner from '../assets/wb_banner.png'
 
 

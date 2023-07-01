@@ -1,9 +1,27 @@
 import React from 'react'
 import Logo from '../assets/wb_logo.png'
+import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
+import Cart from './cart/Cart'
+
 const Navbar = () => {
+
+  const [cartOpen, setCartOpen] = useState(false)
+
+  const close = () => setCartOpen(false)
+  const open = () => setCartOpen(true)
+
+  useEffect(() => {
+    if (cartOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+  }, [cartOpen]);
+
+  
   return (
     <div>
         <nav className="flex justify-between mx-4">
@@ -13,9 +31,10 @@ const Navbar = () => {
             <p className="font-bold hover:scale-105 duration-200"><a href="/info">Info</a></p>
         </div>
         <div className="flex gap-4 my-auto text-2xl md:text-3xl">
-        <a className='hover:scale-105 duration-200' href="https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=G8L6ZMR2Q8PGY&display=1"><FontAwesomeIcon icon={faShoppingCart} /></a>
+          <FontAwesomeIcon icon={faShoppingCart} onClick={() => (cartOpen ? close() : open())} className='cursor-pointer hover:scale-105 duration-200' />
         </div>
         </nav>
+        {cartOpen && <Cart cartOpen={cartOpen} handleClose={close} />}
     </div>
   )
 }

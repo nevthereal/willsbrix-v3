@@ -6,9 +6,9 @@ import Home from "./components/Home";
 import Footer from "./components/Footer";
 import Products from "./components/Products";
 import Info from "./components/Info";
-import ProductPage from "./components/Product"
+import ProductPage from "./components/product/Product"
 
-import {images} from './images'
+import {images} from './context'
 
 
 
