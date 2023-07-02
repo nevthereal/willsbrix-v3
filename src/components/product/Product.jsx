@@ -13,7 +13,7 @@ const Template = ({ title, addToCart, price, description, parts, blPrice, img_ma
           <a href={addToCart} className="productATCOutline"><p className="productATC">{price} CHF - Add to cart</p></a>
           </div>
           <h2 className="productH2">Short description:</h2>
-          <p className="text-sm md:text-lg mb-4">Designed by {designer} <br /> {description}</p>
+          <p className="text-sm md:text-lg m-4">Designed by {designer} <br /> {description}</p>
           <h2 className="productH2">Details:</h2>
           <ul className="productList">
               <li>{parts} Parts</li>
