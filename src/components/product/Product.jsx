@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Template = ({ title, addToCart, price, description, parts, blPrice, img_main, img_2, img_3, designer }) => {
+const Template = ({ title, addToCart, price, description, parts, blPrice, img_main, img_1, img_2, designer }) => {
 
 
   return (
@@ -17,7 +17,7 @@ const Template = ({ title, addToCart, price, description, parts, blPrice, img_ma
           <h2 className="productH2">Details:</h2>
           <ul className="productList">
               <li>{parts} Parts</li>
-              <li>Bricklink price: {blPrice} CHF</li>
+              <li>Bricklink price: ~{blPrice} CHF</li>
           </ul>
         </div>
     </div>
@@ -25,8 +25,8 @@ const Template = ({ title, addToCart, price, description, parts, blPrice, img_ma
         <h2 className="productH2">Gallery:</h2>
         <div className="productGalleryFlex"> 
             <img className="productGalleryImage" src={img_main} alt="" />
+            <img className="productGalleryImage" src={img_1} alt="" />
             <img className="productGalleryImage" src={img_2} alt="" />
-            <img className="productGalleryImage" src={img_3} alt="" />
         </div>
     </div>
     </div>

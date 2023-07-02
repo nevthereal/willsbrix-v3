@@ -1,6 +1,6 @@
 import React from 'react'
 import Panel from './product/Panel'
-import {images} from '../context'
+import {products} from '../products'
 import Banner from '../assets/wb_banner.png'
 
 
@@ -18,9 +18,9 @@ const Home = () => {
     <div id="featured">
         <h1 className="text-3xl font-bold uppercase my-4">Featured:</h1>
         <div className="flex justify-center gap-4 flex-wrap">
-            <Panel link={"/products/at-rt"}                 image={images.at_main}            title={"AT-RT Walker"}              price={"5 CHF"} />
-            <Panel link={"/products/barc-speeder"}          image={images.bs_main}            title={"AT-RT Walker"}              price={"5 CHF"} />
-            <Panel link={"/products/crab-droid"}            image={images.cd_main}            title={"AT-RT Walker"}              price={"5 CHF"} />
+          <Panel link={`/products/${products[3].link}`} image={products[3].img_main} title={products[3].title} price={products[3].price} />
+          <Panel link={`/products/${products[4].link}`} image={products[4].img_main} title={products[4].title} price={products[4].price} />
+          <Panel link={`/products/${products[5].link}`} image={products[5].img_main} title={products[5].title} price={products[5].price} />
         </div>
     </div>
     <div className='py-8'>
