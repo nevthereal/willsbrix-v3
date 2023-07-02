@@ -8,7 +8,7 @@ import Products from "./components/Products";
 import Info from "./components/Info";
 import ProductPage from "./components/product/Product"
 
-import {products} from './products'
+import {products} from './productList'
 
 
 
