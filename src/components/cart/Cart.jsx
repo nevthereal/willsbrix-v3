@@ -18,7 +18,7 @@ const fadeIn = {
 const Cart = ({ handleClose }) => {
   return (
     <div>
-        <Backdrop onClick={handleClose}>
+        <Backdrop handleClose={handleClose}>
             <motion.div 
                 onClick={(e) => e.stopPropagation()}
                 className='w-[90%] h-[60%] bg-white p-10 m-auto rounded-2xl overflow-auto z-[1]'

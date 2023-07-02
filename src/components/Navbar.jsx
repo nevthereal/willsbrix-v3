@@ -31,7 +31,7 @@ const Navbar = () => {
             <p className="font-bold hover:scale-105 duration-200"><a href="/info">Info</a></p>
         </div>
         <div className="flex gap-4 my-auto text-2xl md:text-3xl">
-          <FontAwesomeIcon icon={faShoppingCart} onClick={() => (cartOpen ? close() : open())} className='cursor-pointer hover:scale-105 duration-200' />
+        <a className='hover:scale-105 duration-200' href="https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=G8L6ZMR2Q8PGY&display=1"><FontAwesomeIcon icon={faShoppingCart} /></a>
         </div>
         </nav>
         {cartOpen && <Cart cartOpen={cartOpen} handleClose={close} />}
