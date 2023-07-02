@@ -24,7 +24,8 @@ import ss_1 from './assets/swampspeeder_back.png'
 import ss_2 from './assets/original/swampspeeder.png'
 
 export const products = [
-    { // 0
+    {
+        id: 0,
         link: "assassin-black",
         title: "Black Assassin Droid",
         addToCart: "",
@@ -37,7 +38,8 @@ export const products = [
         img_1: ag_1, 
         img_2: ag_2,
     },
-    { // 1
+    {
+        id: 1,
         link: "assassin-black",
         title: "Black Assassin Droid",
         addToCart: "",
@@ -50,7 +52,8 @@ export const products = [
         img_1: ab_1, 
         img_2: ab_2,
     },
-    { // 2
+    {
+        id: 2,
         link: "at-rt",
         title: "AT-RT Walker",
         addToCart: "",
@@ -63,7 +66,8 @@ export const products = [
         img_1: at_1, 
         img_2: at_2,
     },
-    { // 3
+    {
+        id: 3,
         link: "barc-speeder",
         title: "BARC Speeder",
         addToCart: "",
@@ -76,7 +80,8 @@ export const products = [
         img_1: bs_1, 
         img_2: bs_2,
     },
-    { // 4
+    {
+        id: 4,
         link: "crab-droid",
         title: "Crab Droid",
         addToCart: "",
@@ -89,7 +94,8 @@ export const products = [
         img_1: cd_1, 
         img_2: cd_2,
     },
-    { // 5
+    {
+        id: 5,
         link: "droideka",
         title: "Droideka",
         addToCart: "",
@@ -102,7 +108,8 @@ export const products = [
         img_1: dd_1, 
         img_2: dd_2,
     },
-    { // 6
+    {
+        id: 6,
         link: "swamp-speeder",
         title: "Republic Swamp Speeder",
         addToCart: "",
@@ -115,7 +122,8 @@ export const products = [
         img_1: ss_1, 
         img_2: ss_2,
     },
-    { // 7
+    {
+        id: 7,
         link: "rancor",
         title: "Rancor",
         addToCart: "",
