@@ -26,8 +26,8 @@ import ss_2 from './assets/original/swampspeeder.png'
 export const products = [
     {
         id: 1,
-        link: "assassin-black",
-        title: "Black Assassin Droid",
+        link: "assassin-gray",
+        title: "Gray Assassin Droid",
         addToCart: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JE4FAGYHTQQVA",
         price: 2,
         designer: "William",
