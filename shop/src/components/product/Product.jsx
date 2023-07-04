@@ -6,7 +6,6 @@ const Template = ({ title, addToCart, price, description, parts, blPrice, img_ma
   
   const cart = useContext(CartContext)
   const inCart  = cart.isInCart(id)
-  console.log(cart.items)
 
   return (
     <div>

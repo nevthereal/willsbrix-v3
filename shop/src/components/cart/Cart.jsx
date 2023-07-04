@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { motion } from 'framer-motion'
-import Backdrop from './Backdrop'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
+
+import Backdrop from './Backdrop'
 import CartItem from './CartItem'
+
+import { CartContext } from "../../cartContext"
 
 const fadeIn = {
   hidden: {
@@ -16,6 +19,12 @@ const fadeIn = {
 }
 
 const Cart = ({ handleClose }) => {
+
+  const cart = useContext(CartContext)
+
+  const itemsAmt = cart.items.length
+
+
   return (
     <div>
         <Backdrop handleClose={handleClose}>
@@ -28,15 +37,21 @@ const Cart = ({ handleClose }) => {
                 variants={fadeIn}
             >
               <div className='flex justify-between'>
-                <h1 className='font-bold text-3xl'>Your Cart:</h1>
+                <h1 className='font-bold text-3xl'>Your Cart {itemsAmt === 0 ? <></> : <span>({itemsAmt} Items)</span>}:</h1>
                 <FontAwesomeIcon className='cursor-pointer' icon={faXmark} onClick={handleClose} />
               </div>
               <div className='flex flex-col gap-4 my-4'>
-                <CartItem />
-                <CartItem />
-                <CartItem />
+                {cart.items.length === 0 ? 
+                <p>There is nothing in your cart.</p>
+                :
+                <>
+                {cart.items.map((currentProduct, idx) => (
+                  <CartItem />
+                ))}
+                </>
+                }
               </div>
-              <p>Subtotal: 9 CHF</p>
+              <p>Subtotal: {cart.getSubTotal().toFixed(2)} CHF</p>
             </motion.div>
         </Backdrop>
     </div>

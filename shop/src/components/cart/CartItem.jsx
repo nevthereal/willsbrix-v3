@@ -4,7 +4,7 @@ import {products} from '../../productList'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons'
 
-const CartItem = () => {
+const CartItem = ({item}) => {
 
   return (
     <div className='w-full border-gray-300 bg-gray-200 text-left rounded-xl py-4 px-4 max-w-5xl mx-auto'>
