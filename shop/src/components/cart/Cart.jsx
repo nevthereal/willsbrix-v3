@@ -24,6 +24,23 @@ const Cart = ({ handleClose }) => {
 
   const itemsAmt = cart.items.length
 
+  const checkout = async () => {
+    await fetch('http://localhost:1234/checkout', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({items: cart.items})
+    }).then((response) => {
+        return response.json();
+    }).then((response) => {
+        if(response.url) {
+            window.location.assign(response.url);
+        }
+    }).catch((error) => {
+      console.log(error)
+    })
+}
 
   return (
     <div>
@@ -52,6 +69,7 @@ const Cart = ({ handleClose }) => {
                 }
               </div>
               <p>Subtotal: {cart.getSubTotal().toFixed(2)} CHF</p>
+              <button className='border border-gray-400 py-1 px-2 rounded-lg hover:scale-105 duration-200' onClick={checkout}>Checkout</button>
             </motion.div>
         </Backdrop>
     </div>

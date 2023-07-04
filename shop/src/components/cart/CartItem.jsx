@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 
-import {products, getProductData} from '../../productList'
+import {getProductData} from '../../productList'
 import { CartContext } from '../../cartContext'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
