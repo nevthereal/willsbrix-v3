@@ -25,7 +25,7 @@ import ss_2 from './assets/original/swampspeeder.png'
 
 export const products = [
     {
-        id: 0,
+        id: 1,
         link: "assassin-black",
         title: "Black Assassin Droid",
         addToCart: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JE4FAGYHTQQVA",
@@ -39,7 +39,7 @@ export const products = [
         img_2: ag_2,
     },
     {
-        id: 1,
+        id: 2,
         link: "assassin-black",
         title: "Black Assassin Droid",
         addToCart: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HC9LK2N8FJ5AY",
@@ -53,7 +53,7 @@ export const products = [
         img_2: ab_2,
     },
     {
-        id: 2,
+        id: 3,
         link: "at-rt",
         title: "AT-RT Walker",
         addToCart: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8BEMJHHRBVJ7G",
@@ -67,7 +67,7 @@ export const products = [
         img_2: at_2,
     },
     {
-        id: 3,
+        id: 4,
         link: "barc-speeder",
         title: "BARC Speeder",
         addToCart: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J4PKAF4NKQB9E",
@@ -81,7 +81,7 @@ export const products = [
         img_2: bs_2,
     },
     {
-        id: 4,
+        id: 5,
         link: "crab-droid",
         title: "Crab Droid",
         addToCart: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GTA2WX6LF6SGQ",
@@ -95,7 +95,7 @@ export const products = [
         img_2: cd_2,
     },
     {
-        id: 5,
+        id: 6,
         link: "droideka",
         title: "Droideka",
         addToCart: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4WJH9VBUFW36E",
@@ -109,7 +109,7 @@ export const products = [
         img_2: dd_2,
     },
     {
-        id: 6,
+        id: 7,
         link: "swamp-speeder",
         title: "Republic Swamp Speeder",
         addToCart: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7K7CSGSYGRZB6",
@@ -123,7 +123,7 @@ export const products = [
         img_2: ss_2,
     },
     {
-        id: 7,
+        id: 8,
         link: "rancor",
         title: "Rancor",
         addToCart: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BGAMEEEH4KJ2U",
@@ -137,3 +137,15 @@ export const products = [
         img_2: rc_2,
     },
 ]
+
+
+export function getProductData(id) {
+    let productData = products.find(product => product.id === id)
+
+    if(productData == undefined) {
+        console.log(`The product for the ID ${id} does not exist`)
+        return undefined
+    }
+
+    return productData
+}
