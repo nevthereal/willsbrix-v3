@@ -11,6 +11,8 @@ import ProductPage from "./components/product/Product"
 import {products} from './productList'
 import CartProvider from "./cartContext"
 import Cart from "./components/cart/Cart";
+import Success from "./components/Success";
+import Cancel from "./components/Cancel";
 
 
 function App() {
@@ -22,9 +24,11 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/info" element={<Info />} />
-          {products.map((product) => (
+          <Route path="/success" element={<Success />} />
+          <Route path="/cancel" element={<Cancel />} />
+          {products.map((product, index) => (
             <Route
-              key={product.id}
+              key={index}
               path={`/products/${product.link}`}
               element={<ProductPage title={product.title} addToCart={product.addToCart} price={product.price} description={product.description} parts={product.parts} blPrice={product.blPrice} img_main={product.img_main} img_1={product.img_1} img_2={product.img_2} id={product.id} />}
             />

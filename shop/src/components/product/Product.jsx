@@ -2,7 +2,7 @@ import React from 'react'
 import { CartContext } from "../../cartContext"
 import { useContext } from 'react'
 
-const Template = ({ title, addToCart, price, description, parts, blPrice, img_main, img_1, img_2, designer, id }) => {
+const Template = ({ title, price, description, parts, blPrice, img_main, img_1, img_2, designer, id }) => {
   
   const cart = useContext(CartContext)
   const inCart  = cart.isInCart(id)
@@ -15,7 +15,7 @@ const Template = ({ title, addToCart, price, description, parts, blPrice, img_ma
           <h1 className="productTitle">{title} - Instructions only</h1>
           <div className="productDescContainer">
           {!inCart ? 
-            <button onClick={() => cart.addOneToCart(id)}>Add to cart</button>
+            <button onClick={() => cart.addOneToCart(id)}>CHF {price} Add to cart</button>
             :
             <button onClick={() => cart.removeFromCart(id)}>Remove from Cart</button>
           }

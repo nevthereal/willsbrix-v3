@@ -45,8 +45,8 @@ const Cart = ({ handleClose }) => {
                 <p>There is nothing in your cart.</p>
                 :
                 <>
-                {cart.items.map((currentProduct, idx) => (
-                  <CartItem />
+                {cart.items.map((currentProduct, index) => (
+                  <CartItem key={index} item={currentProduct} />
                 ))}
                 </>
                 }
