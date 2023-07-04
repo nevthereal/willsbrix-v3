@@ -1,7 +1,12 @@
 import React from 'react'
+import { CartContext } from "../../cartContext"
+import { useContext } from 'react'
 
-const Template = ({ title, addToCart, price, description, parts, blPrice, img_main, img_1, img_2, designer }) => {
-
+const Template = ({ title, addToCart, price, description, parts, blPrice, img_main, img_1, img_2, designer, id }) => {
+  
+  const cart = useContext(CartContext)
+  const inCart  = cart.isInCart(id)
+  console.log(cart.items)
 
   return (
     <div>
@@ -10,7 +15,12 @@ const Template = ({ title, addToCart, price, description, parts, blPrice, img_ma
         <div className="my-auto">
           <h1 className="productTitle">{title} - Instructions only</h1>
           <div className="productDescContainer">
-          <a href={addToCart} className="productATCOutline"><p className="productATC">{price} CHF - Add to cart</p></a>
+          {!inCart ? 
+            <button onClick={() => cart.addOneToCart(id)}>Add to cart</button>
+            :
+            <button onClick={() => cart.removeFromCart(id)}>Remove from Cart</button>
+          }
+          
           </div>
           <h2 className="productH2">Short description:</h2>
           <p className="text-sm md:text-lg m-4">Designed by {designer} <br /> {description}</p>

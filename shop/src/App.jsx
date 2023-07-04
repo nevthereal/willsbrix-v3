@@ -26,7 +26,7 @@ function App() {
             <Route
               key={product.id}
               path={`/products/${product.link}`}
-              element={<ProductPage title={product.title} addToCart={product.addToCart} price={product.price} description={product.description} parts={product.parts} blPrice={product.blPrice} img_main={product.img_main} img_1={product.img_1} img_2={product.img_2} />}
+              element={<ProductPage title={product.title} addToCart={product.addToCart} price={product.price} description={product.description} parts={product.parts} blPrice={product.blPrice} img_main={product.img_main} img_1={product.img_1} img_2={product.img_2} id={product.id} />}
             />
           ))}
         </Routes>
