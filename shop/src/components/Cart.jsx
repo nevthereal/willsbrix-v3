@@ -25,7 +25,6 @@ const Cart = ({ handleClose }) => {
   const itemsAmt = cart.items.length
 
   const checkout = async () => {
-    console.log(cart.items)
     await fetch('http://localhost:4000/checkout', {
         method: "POST",
         headers: {
