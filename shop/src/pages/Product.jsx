@@ -1,5 +1,5 @@
 import React from 'react'
-import { CartContext } from "../../cartContext"
+import { CartContext } from "../cartContext"
 import { useContext } from 'react'
 
 const Template = ({ title, price, description, parts, blPrice, img_main, img_1, img_2, designer, id }) => {

@@ -2,17 +2,16 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import Footer from "./components/Footer";
-import Products from "./components/Products";
-import Info from "./components/Info";
-import ProductPage from "./components/product/Product"
+import Home from "./pages/Home";
+import Footer from "./pages/Footer";
+import Products from "./pages/Products";
+import Info from "./pages/Info";
+import ProductPage from "./pages/Product"
 
 import {products} from './productList'
 import CartProvider from "./cartContext"
-import Cart from "./components/cart/Cart";
-import Success from "./components/Success";
-import Cancel from "./components/Cancel";
+import Success from "./pages/Success";
+import Cancel from "./pages/Cancel";
 
 
 function App() {

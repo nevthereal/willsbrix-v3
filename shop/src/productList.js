@@ -38,7 +38,7 @@ export const products = [
         img_2: ag_2,
     },
     {
-        id: "price_1NDgxcBmDYG1ytjGorO4yqDO",
+        id: "price_1NQUzYBmDYG1ytjGwCMEyYJm",
         link: "assassin-black",
         title: "Black Assassin Droid",
         price: 2,

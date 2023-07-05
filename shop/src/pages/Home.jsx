@@ -1,5 +1,5 @@
 import React from 'react'
-import Panel from './product/Panel'
+import Panel from '../components/Panel'
 import {products} from '../productList'
 import Banner from '../assets/wb_banner.png'
 
