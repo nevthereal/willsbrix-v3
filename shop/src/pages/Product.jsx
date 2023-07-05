@@ -2,7 +2,7 @@ import React from 'react'
 import { CartContext } from "../cartContext"
 import { useContext } from 'react'
 
-const Template = ({ title, price, description, parts, blPrice, img_main, img_1, img_2, designer, id }) => {
+const Product = ({ title, price, description, parts, blPrice, img_main, img_1, img_2, designer, id }) => {
   
   const cart = useContext(CartContext)
   const inCart  = cart.isInCart(id)
@@ -42,4 +42,4 @@ const Template = ({ title, price, description, parts, blPrice, img_main, img_1, 
   )
 }
 
-export default Template
+export default Product

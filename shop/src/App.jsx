@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import Footer from "./pages/Footer";
 import Products from "./pages/Products";
 import Info from "./pages/Info";
-import ProductPage from "./pages/Product"
+import Product from "./pages/Product"
 
 import {products} from './productList'
 import CartProvider from "./cartContext"
@@ -29,7 +29,7 @@ function App() {
             <Route
               key={index}
               path={`/products/${product.link}`}
-              element={<ProductPage title={product.title} price={product.price} description={product.description} parts={product.parts} blPrice={product.blPrice} img_main={product.img_main} img_1={product.img_1} img_2={product.img_2} id={product.id} />}
+              element={<Product title={product.title} price={product.price} description={product.description} parts={product.parts} blPrice={product.blPrice} img_main={product.img_main} img_1={product.img_1} img_2={product.img_2} id={product.id} />}
             />
           ))}
         </Routes>
