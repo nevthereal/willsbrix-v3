@@ -55,12 +55,12 @@ const Cart = ({ handleClose }) => {
                 variants={fadeIn}
             >
               <div className='flex justify-between'>
-                <h1 className='font-bold text-3xl'>Your Cart {itemsAmt === 0 ? <></> : <span>({itemsAmt} Items)</span>}:</h1>
+                <h1 className='font-bold text-4xl'>Your Cart{itemsAmt === 0 ? <></> : <span> ({itemsAmt} Items)</span>}:</h1>
                 <FontAwesomeIcon className='cursor-pointer' icon={faXmark} onClick={handleClose} />
               </div>
               <div className='flex flex-col gap-4 my-4'>
                 {cart.items.length === 0 ? 
-                <p>There is nothing in your cart.</p>
+                <p className='text-xl'>There are no items in your cart. <a href="/products" className='font-bold'>Explore Products</a></p>
                 :
                 <>
                 {cart.items.map((currentProduct, index) => (

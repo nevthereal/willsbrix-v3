@@ -15,9 +15,9 @@ const Product = ({ title, price, description, parts, blPrice, img_main, img_1, i
           <h1 className="productTitle">{title} - Instructions only</h1>
           <div className="productDescContainer">
           {!inCart ? 
-            <button onClick={() => cart.addOneToCart(id)}>CHF {price} Add to cart</button>
+            <button className='border border-gray-400 py-1 px-2 rounded-lg hover:scale-105 duration-200 text-lg font-bold' onClick={() => cart.addOneToCart(id)}>CHF {price} Add to cart</button>
             :
-            <button onClick={() => cart.removeFromCart(id)}>Remove from Cart</button>
+            <button className='border border-gray-400 py-1 px-2 rounded-lg hover:scale-105 duration-200 text-lg font-bold' onClick={() => cart.removeFromCart(id)}>Remove from Cart</button>
           }
           
           </div>

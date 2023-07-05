@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react"
-import { products, getProductData } from "./productList"
+import { getProductData } from "./productList"
+import { useNavigate } from "react-router-dom"
 
 export const CartContext = createContext({
     items: [],
@@ -11,6 +12,8 @@ export const CartContext = createContext({
 
 
 export function CartProvider({children}) {
+
+    let navigate = useNavigate()
 
     const [cartProducts, setCartProducts] = useState(() => {
         const storedCartData = localStorage.getItem("cartProducts");
@@ -34,6 +37,7 @@ export function CartProvider({children}) {
     }
 
     function addOneToCart(id) {
+        let itemName = getProductData(id).title
         if(!isInCart(id)) {
             setCartProducts(
                 [
@@ -47,9 +51,12 @@ export function CartProvider({children}) {
         } else {
             alert("Item is already in the Cart")
         }
+        alert(`Item "${itemName}" was added to Cart`)
+        navigate("/products")
     }
 
     function removeFromCart(id) {
+        let itemName = getProductData(id).title
         setCartProducts(
             cartProducts => 
             cartProducts.filter(
@@ -58,6 +65,7 @@ export function CartProvider({children}) {
                 }
             )
         )
+        alert(`Item "${itemName}" was removed from Cart`)
     }
 
     function getSubTotal() {
