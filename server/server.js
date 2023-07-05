@@ -1,14 +1,15 @@
 require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
-const stripe = require('stripe')(process.env.STRIPE_API_KEY)
+// const stripe = require('stripe')(process.env.STRIPE_API_KEY)
+const stripe = require('stripe')('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')
 
 const app = express()
 app.use(cors())
 app.use(express.static('public'))
 app.use(express.json)
 
-app.post("/checkout", async (req, res) => {
+app.post("/checkout", cors(), async (req, res) => {
     console.log(req.body)
     const items = req.body.items
     let lineItems = []
@@ -33,4 +34,4 @@ app.post("/checkout", async (req, res) => {
     }))
 })
 
-app.listen(1234, () => console.log("Hello Wrold"))
+app.listen(4000, () => console.log("LISTENING ON PORT 4000"))

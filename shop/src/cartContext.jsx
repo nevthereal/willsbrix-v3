@@ -40,6 +40,7 @@ export function CartProvider({children}) {
                     ...cartProducts,
                     {
                         id: id,
+                        quantity: 1
                     }
                 ]
             )
