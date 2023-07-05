@@ -25,7 +25,7 @@ import ss_2 from './assets/original/swampspeeder.png'
 
 export const products = [
     {
-        id: "price_1NDgxBBmDYG1ytjGZrL076Lr",
+        id: "price_1NQZxtBmDYG1ytjGCAa1rdf6",
         link: "assassin-gray",
         title: "Gray Assassin Droid",
         price: 2,
@@ -51,7 +51,7 @@ export const products = [
         img_2: ab_2,
     },
     {
-        id: "price_1NDgthBmDYG1ytjGLxdw3CRw",
+        id: "price_1NQZyABmDYG1ytjGxCYVfwyo",
         link: "at-rt",
         title: "AT-RT Walker",
         price: 5,
@@ -64,7 +64,7 @@ export const products = [
         img_2: at_2,
     },
     {
-        id: "price_1NDgupBmDYG1ytjG20CAN3ma",
+        id: "price_1NQZySBmDYG1ytjGSCnRJLko",
         link: "barc-speeder",
         title: "BARC Speeder",
         price: 7.50,
@@ -77,7 +77,7 @@ export const products = [
         img_2: bs_2,
     },
     {
-        id: "price_1NDgwIBmDYG1ytjG8CgpFD36",
+        id: "price_1NQZyqBmDYG1ytjGASJQewL2",
         link: "crab-droid",
         title: "Crab Droid",
         price: 3.50,
@@ -90,7 +90,7 @@ export const products = [
         img_2: cd_2,
     },
     {
-        id: "price_1NDgwkBmDYG1ytjGqf4DBswq",
+        id: "price_1NQZz4BmDYG1ytjGzmWNz4Fm",
         link: "droideka",
         title: "Droideka",
         price: 3,
@@ -103,7 +103,7 @@ export const products = [
         img_2: dd_2,
     },
     {
-        id: "price_1NDgy4BmDYG1ytjGgNMATKph",
+        id: "price_1NQZzHBmDYG1ytjGU77fV9zQ",
         link: "swamp-speeder",
         title: "Republic Swamp Speeder",
         price: 10,
@@ -116,7 +116,7 @@ export const products = [
         img_2: ss_2,
     },
     {
-        id: "price_1NDgvbBmDYG1ytjGC6U8CY3C",
+        id: "price_1NQZzTBmDYG1ytjG5VoB8MKM",
         link: "rancor",
         title: "Rancor",
         price: 20,
