@@ -1,7 +1,7 @@
 import React, {useContext} from 'react'
 
-import {getProductData} from '../../productList'
-import { CartContext } from '../../cartContext'
+import {getProductData} from '../productList'
+import { CartContext } from '../cartContext'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons'

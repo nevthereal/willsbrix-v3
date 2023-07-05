@@ -6,7 +6,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import Backdrop from './Backdrop'
 import CartItem from './CartItem'
 
-import { CartContext } from "../../cartContext"
+import { CartContext } from "../cartContext"
 
 const fadeIn = {
   hidden: {
