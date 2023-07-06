@@ -55,9 +55,9 @@ const Cart = ({ handleClose }) => {
             >
               <div className='flex justify-between'>
                 <h1 className='font-bold text-4xl'>Your Cart{itemsAmt === 0 ? <></> : <span> ({itemsAmt} Items)</span>}:</h1>
-                <FontAwesomeIcon className='cursor-pointer' icon={faXmark} onClick={handleClose} />
+                <FontAwesomeIcon className='cursor-pointer text-xl' icon={faXmark} onClick={handleClose} />
               </div>
-              <div className='flex flex-col gap-4 my-4'>
+              <div className='flex flex-col gap-4 my-8'>
                 {cart.items.length === 0 ? 
                 <p className='text-xl'>There are no items in your cart. <a href="/products" className='font-bold'>Explore Products</a></p>
                 :
