@@ -40,7 +40,6 @@ const Cart = ({ handleClose }) => {
     }).catch((error) => {
       console.log(error)
     })
-    console.log(cart.items)
   }
 
   return (
