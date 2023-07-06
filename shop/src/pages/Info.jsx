@@ -18,8 +18,8 @@ const Info = () => {
       </div>
 
       <h1 className='text-4xl md:text-6xl font-black uppercase my-8'>Contact</h1>
-      <p className="md:text-xl my-1">Contact us via Email: <a className="font-bold" href="mailto:support@willsbrix.com">support@willsbrix.com</a></p>
-      <p className="md:text-xl my-1">Send us a DM on Twitter: <a className="font-bold" href="https://twitter.com/willsbrix">@willsbrix</a></p>
+      <p className="md:text-xl my-1">Send us an Email: <a className="font-bold" href="mailto:support@willsbrix.com">support@willsbrix.com</a></p>
+      <p className="md:text-xl my-1">Send us a direct message on Twitter: <a className="font-bold" href="https://twitter.com/willsbrix">@willsbrix</a></p>
       <p className="md:text-xl my-1">Follow us on Instagran: <a className="font-bold" href="https://instagram.com/willsbrixlego_official">@willsbrixlego_official</a></p>
     </div>
   )
