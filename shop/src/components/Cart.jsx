@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { motion } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
@@ -25,22 +25,24 @@ const Cart = ({ handleClose }) => {
   const itemsAmt = cart.items.length
 
   const checkout = async () => {
-    await fetch('http://localhost:4000/checkout', {
-        method: "POST",
+    try {
+      const response = await fetch('http://localhost:4000/checkout', {
+        method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify({items: cart.items})
-    }).then((response) => {
-        return response.json();
-    }).then((response) => {
-        if(response.url) {
-            window.location.assign(response.url);
-        }
-    }).catch((error) => {
+        body: JSON.stringify({ items: cart.items })
+      })
+  
+      const { url } = await response.json()
+  
+      if (url) {
+        window.location.href = url
+      }
+    } catch (error) {
       console.log(error)
-    })
-  }
+    }
+  }  
 
   return (
     <div>
