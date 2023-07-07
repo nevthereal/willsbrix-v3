@@ -2,7 +2,7 @@ import React from 'react'
 
 const Success = () => {
   return (
-    <div>Your order was a success</div>
+    <div>Thank you for your order! You will get a mail with the Instructions and Partlists soon! <a href="/" className='font-bold'>Back to home</a></div>
   )
 }
 
