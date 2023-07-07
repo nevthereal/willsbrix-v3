@@ -38,6 +38,7 @@ const Cart = ({ handleClose }) => {
   
       if (url) {
         window.location.href = url
+        localStorage.removeItem('cartProducts');
       }
     } catch (error) {
       console.log(error)
