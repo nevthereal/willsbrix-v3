@@ -25,10 +25,9 @@ import ss_2 from './assets/original/swampspeeder.png'
 
 export const products = [
     {
-        id: 0,
-        link: "assassin-black",
-        title: "Black Assassin Droid",
-        addToCart: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JE4FAGYHTQQVA",
+        id: "price_1NQZxtBmDYG1ytjGCAa1rdf6",
+        link: "assassin-gray",
+        title: "Gray Assassin Droid",
         price: 2,
         designer: "William",
         description: "The Assassin Droid is ideal for hunting bounty or serving in a gang. It offers many details and is minifigure-scaled.",
@@ -39,10 +38,9 @@ export const products = [
         img_2: ag_2,
     },
     {
-        id: 1,
+        id: "price_1NQUzYBmDYG1ytjGwCMEyYJm",
         link: "assassin-black",
         title: "Black Assassin Droid",
-        addToCart: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HC9LK2N8FJ5AY",
         price: 2,
         designer: "William",
         description: "The Assassin Droid is ideal for hunting bounty or serving in a gang. It offers many details and is minifigure-scaled.",
@@ -53,10 +51,9 @@ export const products = [
         img_2: ab_2,
     },
     {
-        id: 2,
+        id: "price_1NQZyABmDYG1ytjGxCYVfwyo",
         link: "at-rt",
         title: "AT-RT Walker",
-        addToCart: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8BEMJHHRBVJ7G",
         price: 5,
         designer: "William",
         description: "This All-Terrain Recon Transporter is ideal for every MOC. Since it is not too big, you can build it multiple times and display or put it in your base or battle field! It is capable of holding a trooper and 2 weapons!",
@@ -67,10 +64,9 @@ export const products = [
         img_2: at_2,
     },
     {
-        id: 3,
+        id: "price_1NQZySBmDYG1ytjGSCnRJLko",
         link: "barc-speeder",
         title: "BARC Speeder",
-        addToCart: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J4PKAF4NKQB9E",
         price: 7.50,
         designer: "William",
         description: "The BARC (Biker Advanced Recon Commando) Speeder are light and optimal to use them in quantity for your Mocs!",
@@ -81,10 +77,9 @@ export const products = [
         img_2: bs_2,
     },
     {
-        id: 4,
+        id: "price_1NQZyqBmDYG1ytjGASJQewL2",
         link: "crab-droid",
         title: "Crab Droid",
-        addToCart: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GTA2WX6LF6SGQ",
         price: 3.50,
         designer: "William",
         description: "The Crab Droid is an important part of the separatist droid army and was designed by the Techno-Union. It offers many details and is minifigure-scaled.",
@@ -95,10 +90,9 @@ export const products = [
         img_2: cd_2,
     },
     {
-        id: 5,
+        id: "price_1NQZz4BmDYG1ytjGzmWNz4Fm",
         link: "droideka",
         title: "Droideka",
-        addToCart: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4WJH9VBUFW36E",
         price: 3,
         designer: "William",
         description: "The high-detailed and minifig-scaled Droideka served in the droid army of the Seperatists in the clone wars. You can roll him up, like in the movies.",
@@ -109,10 +103,9 @@ export const products = [
         img_2: dd_2,
     },
     {
-        id: 6,
+        id: "price_1NQZzHBmDYG1ytjGU77fV9zQ",
         link: "swamp-speeder",
         title: "Republic Swamp Speeder",
-        addToCart: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7K7CSGSYGRZB6",
         price: 10,
         designer: "Neville",
         description: "The Republic Swamp Speeder or Infantry Support Platform (short ISP) grants protection for your troops on Felucia or other planets. It is highly-detailed.",
@@ -123,10 +116,9 @@ export const products = [
         img_2: ss_2,
     },
     {
-        id: 7,
+        id: "price_1NQZzTBmDYG1ytjG5VoB8MKM",
         link: "rancor",
         title: "Rancor",
-        addToCart: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BGAMEEEH4KJ2U",
         price: 20,
         designer: "William",
         description: "The horrifying Rancor, inspired by Star Wars Episode VI: Return of The Jedi, is minifig-scaled and inevitable for your next Jabba's Palace Build.",
@@ -137,3 +129,15 @@ export const products = [
         img_2: rc_2,
     },
 ]
+
+
+export function getProductData(id) {
+    let productData = products.find(product => product.id === id)
+
+    if(productData == undefined) {
+        console.log(`The product for the ID ${id} does not exist`)
+        return undefined
+    }
+
+    return productData
+}
