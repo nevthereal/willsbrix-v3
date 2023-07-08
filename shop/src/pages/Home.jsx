@@ -1,7 +1,6 @@
 import React from 'react'
 import Panel from '../components/Panel'
 import {products} from '../productList'
-import Banner from '../assets/wb_banner.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
@@ -9,16 +8,17 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 const Home = () => {
   return (
     <div>
-      <div style={{backgroundImage: `url(${Banner})`}} id="header" className="text-center bg-no-repeat bg-center bg-cover mt-4 transition-all w-full h-[92vh] bg-white">
-        <div className="h-full w-full bg-gray-800/25 dark:bg-black/70"></div>
+      <div id="header" className="text-center bg-no-repeat bg-center bg-cover w-full bg-white">
+        <div className="w-full bg-gray-800/25 dark:bg-black/70 h-[90vh]">
           <div className="absolute top-[40vh] text-4xl md:text-6xl font-black text-white bg-cover w-full">
             <h1 className='uppercase'>WILL'S Brix</h1> <br />
             <p className="text-base md:text-lg tracking-wider">LEGO® MOCs from Switzerland!</p><br />
-            <div className='text-base bg-orange-400 border-2 border-orange-600 w-fit mt-6 mb-2 md:mx-auto my-8 p-3 rounded-2xl'>
+            <div className='text-base bg-orange-400 border-2 border-orange-600 w-fit mt-6 mb-2 md:mx-auto mx-2 my-8 p-3 rounded-2xl'>
               <h2 className='text-2xl'>Summer Sale!</h2>
               <p className='font-semibold'>30% Off all products with Code "SUMMER30"! Valid until July 31</p>
+            </div>
+            <a href="#featured"><FontAwesomeIcon className='text-3xl md:text-4xl hover:scale-110 duration-200' icon={faChevronDown} /></a>
           </div>
-          <a href="#featured"><FontAwesomeIcon className='text-3xl md:text-4xl hover:scale-110 duration-200' icon={faChevronDown} /></a>
         </div>
       </div>
     <div id="featured">

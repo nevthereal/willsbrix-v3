@@ -7,6 +7,10 @@ html {
     @apply text-center bg-white dark:bg-gray-800;
 }
 
+#header {
+    background-image: url(./assets/wb_banner.png);
+}
+
 .productContainer {
     @apply md:grid m-4 md:grid-cols-2
 }
