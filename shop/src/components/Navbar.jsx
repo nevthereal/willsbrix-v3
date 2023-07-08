@@ -24,7 +24,7 @@ const Navbar = () => {
   
   return (
     <div>
-        <nav className="flex justify-between mx-4">
+        <nav className="flex justify-between mx-4 h-[8vh]">
           <a href="/"><img className='my-auto w-16 md:w-24 hover:scale-105 duration-200' src={Logo} alt="logo" /></a>
           <div className="text-lg md:text-xl flex my-auto gap-4">
               <p className="font-bold hover:scale-105 duration-200"><a href="/products">Products</a></p>
