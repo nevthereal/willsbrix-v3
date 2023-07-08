@@ -25,7 +25,7 @@ import ss_2 from './assets/original/swampspeeder.png'
 
 export const products = [
     {
-        id: "price_1NQZxtBmDYG1ytjGCAa1rdf6",
+        id: import.meta.env.VITE_PRODUCT_AG,
         link: "assassin-gray",
         title: "Gray Assassin Droid",
         price: 2,
@@ -38,7 +38,7 @@ export const products = [
         img_2: ag_2,
     },
     {
-        id: "price_1NQUzYBmDYG1ytjGwCMEyYJm",
+        id: import.meta.env.VITE_PRODUCT_AB,
         link: "assassin-black",
         title: "Black Assassin Droid",
         price: 2,
@@ -51,7 +51,7 @@ export const products = [
         img_2: ab_2,
     },
     {
-        id: "price_1NQZyABmDYG1ytjGxCYVfwyo",
+        id: import.meta.env.VITE_PRODUCT_AT,
         link: "at-rt",
         title: "AT-RT Walker",
         price: 5,
@@ -64,7 +64,7 @@ export const products = [
         img_2: at_2,
     },
     {
-        id: "price_1NQZySBmDYG1ytjGSCnRJLko",
+        id: import.meta.env.VITE_PRODUCT_BS,
         link: "barc-speeder",
         title: "BARC Speeder",
         price: 7.50,
@@ -77,7 +77,7 @@ export const products = [
         img_2: bs_2,
     },
     {
-        id: "price_1NQZyqBmDYG1ytjGASJQewL2",
+        id: import.meta.env.VITE_PRODUCT_CD,
         link: "crab-droid",
         title: "Crab Droid",
         price: 3.50,
@@ -90,7 +90,7 @@ export const products = [
         img_2: cd_2,
     },
     {
-        id: "price_1NQZz4BmDYG1ytjGzmWNz4Fm",
+        id: import.meta.env.VITE_PRODUCT_DD,
         link: "droideka",
         title: "Droideka",
         price: 3,
@@ -103,7 +103,7 @@ export const products = [
         img_2: dd_2,
     },
     {
-        id: "price_1NQZzHBmDYG1ytjGU77fV9zQ",
+        id: import.meta.env.VITE_PRODUCT_SS,
         link: "swamp-speeder",
         title: "Republic Swamp Speeder",
         price: 10,
@@ -116,7 +116,7 @@ export const products = [
         img_2: ss_2,
     },
     {
-        id: "price_1NQZzTBmDYG1ytjG5VoB8MKM",
+        id: import.meta.env.VITE_PRODUCT_RC,
         link: "rancor",
         title: "Rancor",
         price: 20,

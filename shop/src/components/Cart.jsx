@@ -26,7 +26,7 @@ const Cart = ({ handleClose }) => {
 
   const checkout = async () => {
     try {
-      const response = await fetch('http://localhost:4000/checkout', {
+      const response = await fetch(`${import.meta.env.VITE_CHECKOUT_DOMAIN}/checkout`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -43,7 +43,8 @@ const Cart = ({ handleClose }) => {
     } catch (error) {
       console.log(error)
     }
-  }  
+  }
+  
 
   return (
     <div>

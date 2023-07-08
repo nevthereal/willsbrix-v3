@@ -8,6 +8,8 @@ app.use(cors())
 app.use(express.static('public'))
 app.use(express.json())
 
+DOMAIN = process.env.STORE_DOMAIN
+
 app.post("/checkout", async (req, res) => {
   const items = req.body.items
   let lineItems = []
@@ -21,8 +23,8 @@ app.post("/checkout", async (req, res) => {
   const session = await stripe.checkout.sessions.create({
     line_items: lineItems,
     mode: 'payment',
-    success_url: "http://localhost:5173/success",
-    cancel_url: "http://localhost:5173/cancel",
+    success_url: `${DOMAIN}/success`,
+    cancel_url: `${DOMAIN}/cancel`,
   })
 
   res.json({ url: session.url })
