@@ -16,7 +16,7 @@ import Cancel from "./pages/Cancel";
 
 function App() {
   return (
-    <>
+    <div className="dark:bg-gray-800 dark:text-white">
       <CartProvider>
         <Navbar />
         <Routes>
@@ -35,7 +35,7 @@ function App() {
         </Routes>
         <Footer />
       </CartProvider>
-    </>
+    </div>
   );
 }
 

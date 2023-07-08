@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div>
         <div style={{backgroundImage: `url(${Banner})`}} id="header" className="text-center bg-no-repeat bg-center bg-cover mt-4 transition-all w-full h-[92vh] bg-white">
-        <div className="h-full w-full bg-black/25"></div>
+        <div className="h-full w-full bg-gray-800/25 dark:bg-black/70"></div>
         <p className="absolute top-[40vh] text-4xl md:text-6xl font-black text-white uppercase tracking-wide bg-cover w-full">
         WILL'S Brix <br />
         <span className="text-base md:text-lg">LEGO® MOC's from Switzerland!</span><br />
