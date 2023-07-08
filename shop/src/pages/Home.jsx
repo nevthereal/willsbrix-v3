@@ -9,9 +9,13 @@ const Home = () => {
     <div>
         <div style={{backgroundImage: `url(${Banner})`}} id="header" className="text-center bg-no-repeat bg-center bg-cover mt-4 transition-all w-full h-[92vh] bg-white">
         <div className="h-full w-full bg-gray-800/25 dark:bg-black/70"></div>
-        <p className="absolute top-[40vh] text-4xl md:text-6xl font-black text-white uppercase tracking-wide bg-cover w-full">
-        WILL'S Brix <br />
-        <span className="text-base md:text-lg">LEGO® MOC's from Switzerland!</span><br />
+        <p className="absolute top-[40vh] text-4xl md:text-6xl font-black text-white tracking-wide bg-cover w-full">
+        <span className='uppercase'>WILL'S Brix</span> <br />
+        <span className="text-base md:text-lg">LEGO® MOCs from Switzerland!</span><br />
+        <div className='text-base bg-orange-400 border-2 rounded- border-orange-600 max-w-fit mx-8 md:mx-auto my-8 p-3 rounded-2xl'>
+          <h2 className='text-2xl'>Summer Sale!</h2>
+          <p>30% Off all products with Code "SUMMER30"! Valid until July 31</p>
+        </div>
         <button className="border border-gray-400 py-1 px-2 rounded-lg hover:scale-105 duration-200"><a href="#featured"><p className='font-bold text-xl sm:text-2xl'>Explore!</p></a></button>
         </p>
     </div>
