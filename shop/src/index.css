@@ -44,5 +44,5 @@ html {
 }
 
 .productGalleryImage {
-    @apply w-[480px] my-4 border border-gray-300 rounded-xl
+    @apply w-[480px] my-4 border border-gray-300 dark:border-gray-600 rounded-xl
 }

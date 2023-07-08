@@ -19,8 +19,8 @@ const CartItem = ({item}) => {
         <img src={productData.img_main} alt={productData.title} className='h-24 w-24 rounded-xl' />
           <div className='flex justify-between my-auto w-full'>
             <div>
-              <h1 className='text-3xl font-bold text-left'>{productData.title}</h1>
-              <p className='text-left font-semibold text-gray-600 dark:text-gray-300'>{productData.price} CHF</p>
+              <h1 className='text-xl md:text-3xl font-bold text-left'>{productData.title}</h1>
+              <p className='text-left font-semibold text-gray-600 dark:text-gray-300 text-sm md:text-base'>{productData.price} CHF</p>
             </div>
             <FontAwesomeIcon icon={faTrashCan} className='text-2xl my-auto cursor-pointer' onClick={() => cart.removeFromCart(productData.id)} />
           </div>
