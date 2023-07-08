@@ -20,7 +20,7 @@ const CartItem = ({item}) => {
           <div className='flex justify-between my-auto w-full'>
             <div>
               <h1 className='text-3xl font-bold text-left'>{productData.title}</h1>
-              <p className='text-left font-semibold text-gray-600'>{productData.price} CHF</p>
+              <p className='text-left font-semibold text-gray-600 dark:text-gray-300'>{productData.price} CHF</p>
             </div>
             <FontAwesomeIcon icon={faTrashCan} className='text-2xl my-auto cursor-pointer' onClick={() => cart.removeFromCart(productData.id)} />
           </div>
