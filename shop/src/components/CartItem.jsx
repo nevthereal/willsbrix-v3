@@ -16,7 +16,7 @@ const CartItem = ({item}) => {
   return (
     <div className='w-full border border-gray-300 dark:border-gray-500 bg-gray-200 dark:bg-gray-700 text-left rounded-xl py-4 px-4 max-w-5xl mx-auto'>
       <div className='flex gap-4'>
-        <img src={productData.img_main} alt={productData.title} className='h-24 w-24 rounded-xl' />
+        <img src={productData.img_main} alt={productData.title} className='h-16 m-auto w-16 md:h-24 md:w-24 rounded-xl' />
           <div className='flex justify-between my-auto w-full'>
             <div>
               <h1 className='text-xl md:text-3xl font-bold text-left'>{productData.title}</h1>

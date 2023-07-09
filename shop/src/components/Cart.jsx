@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { motion } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faCcStripe } from '@fortawesome/free-brands-svg-icons'
 
 import Backdrop from './Backdrop'
 import CartItem from './CartItem'
@@ -58,10 +59,10 @@ const Cart = ({ handleClose }) => {
                 variants={fadeIn}
             >
               <div className='flex justify-between'>
-                <h1 className='font-bold text-4xl'>Your Cart{itemsAmt === 0 ? <></> : <span> ({itemsAmt} Items)</span>}:</h1>
+                <h1 className='font-bold text-4xl'>Your Cart:</h1>
                 <FontAwesomeIcon className='cursor-pointer text-xl' icon={faXmark} onClick={handleClose} />
               </div>
-              <div className='flex flex-col gap-4 my-8'>
+              <div className='flex flex-col gap-4 my-4'>
                 {cart.items.length === 0 ? 
                 <p className='text-xl'>There are no items in your cart. <a href="/products" className='font-bold'>Explore Products</a></p>
                 :
@@ -75,8 +76,8 @@ const Cart = ({ handleClose }) => {
               
               {cart.items.length > 0 ? 
               <>
-                <p>Subtotal: {cart.getSubTotal().toFixed(2)} CHF</p>
-                <button className='border border-gray-400 py-1 px-2 rounded-lg hover:scale-105 duration-200' onClick={checkout}>Checkout</button>
+                <p className='font-semibold text-sm'>Subtotal: {cart.getSubTotal().toFixed(2)} CHF</p>
+                <button className='border border-gray-400 py-1 px-2 rounded-lg hover:scale-105 duration-200 text-xl font-bold mt-2' onClick={checkout}>Checkout with <FontAwesomeIcon icon={faCcStripe} /></button>
               </> 
               : 
               <></>}
