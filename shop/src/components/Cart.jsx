@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFaceSmileWink, faSpinner, faXmark } from '@fortawesome/free-solid-svg-icons'
@@ -24,7 +24,19 @@ const Cart = ({ handleClose }) => {
 
   const cart = useContext(CartContext)
   const [isLoading, setIsLoading] = useState(false)
-  const [twoSec, setTwoSec] = useState(false)
+  const [showDelayedMessage, setShowDelayedMessage] = useState(false);
+
+  useEffect(() => {
+    let timeoutId = null;
+    if (isLoading) {
+      timeoutId = setTimeout(() => {
+        setShowDelayedMessage(true);
+      }, 1000);
+    } else {
+      setShowDelayedMessage(false);
+    }
+    return () => clearTimeout(timeoutId);
+  }, [isLoading]);
   
   const checkout = async () => {
     try {
@@ -49,10 +61,6 @@ const Cart = ({ handleClose }) => {
       setIsLoading(false)
     }
 
-  }
-
-  if(isLoading === true){
-    setTimeout(setTwoSec, "2 seconds")
   }
   
 
@@ -90,7 +98,12 @@ const Cart = ({ handleClose }) => {
               </> 
               :
               null}
-              {twoSec ? <p className='italic'>Sometimes server requests can take a little longer. If so, be patient <FontAwesomeIcon icon={faFaceSmileWink} /></p> : null}
+              {isLoading && showDelayedMessage && (
+              <p className='italic'>
+                Sometimes server requests can take a little longer. If so, be patient{' '}
+                <FontAwesomeIcon icon={faFaceSmileWink} />
+              </p>
+              )}
             </motion.div>
         </Backdrop>
     </div>
