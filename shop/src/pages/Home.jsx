@@ -10,9 +10,9 @@ const Home = () => {
     <div>
       <div id="header" className="text-center bg-no-repeat bg-center bg-cover w-full bg-white">
         <div className="w-full bg-gray-800/25 dark:bg-black/70 h-[90vh]">
-          <div className="absolute top-[40vh] text-4xl md:text-6xl font-black text-white bg-cover w-full">
-            <h1 className='uppercase'>WILL'S Brix</h1> <br />
-            <p className="text-base md:text-lg tracking-wider">LEGO® MOCs from Switzerland!</p><br />
+          <div className="absolute top-[40vh] text-4xl md:text-6xl font-black text-white bg-cover w-full h-40">
+            <h1 className='uppercase'>WILL'S Brix</h1>
+            <p className="text-base md:text-lg tracking-wider my-4">LEGO® MOCs from Switzerland!</p>
             <div className='text-base bg-orange-400 border-2 border-orange-600 w-fit mt-6 mb-2 md:mx-auto mx-2 my-8 p-3 rounded-2xl'>
               <h2 className='text-2xl'>Summer Sale!</h2>
               <p className='font-semibold'>30% Off all products with Code "SUMMER30"! Valid until July 31</p>

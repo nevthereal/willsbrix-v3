@@ -1,7 +1,7 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { motion } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faSpinner, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { faCcStripe } from '@fortawesome/free-brands-svg-icons'
 
 import Backdrop from './Backdrop'
@@ -19,14 +19,16 @@ const fadeIn = {
   }
 }
 
+
+
 const Cart = ({ handleClose }) => {
 
   const cart = useContext(CartContext)
-
-  const itemsAmt = cart.items.length
-
+  const [isLoading, setIsLoading] = useState(false)
+  
   const checkout = async () => {
     try {
+      setIsLoading(true)
       const response = await fetch(`${import.meta.env.VITE_CHECKOUT_DOMAIN}/checkout`, {
         method: 'POST',
         headers: {
@@ -43,7 +45,10 @@ const Cart = ({ handleClose }) => {
       }
     } catch (error) {
       console.log(error)
+    } finally {
+      setIsLoading(false)
     }
+
   }
   
 
@@ -77,10 +82,10 @@ const Cart = ({ handleClose }) => {
               {cart.items.length > 0 ? 
               <>
                 <p className='font-semibold text-sm'>Subtotal: {cart.getSubTotal().toFixed(2)} CHF</p>
-                <button className='border border-gray-400 py-1 px-2 rounded-lg hover:scale-105 duration-200 text-xl font-bold mt-2' onClick={checkout}>Checkout with <FontAwesomeIcon icon={faCcStripe} /></button>
+                <button className='border border-gray-400 py-1 px-2 rounded-lg hover:scale-105 duration-200 text-xl font-bold mt-2' onClick={checkout}>{isLoading ? <span className='cursor-wait'>Loading <FontAwesomeIcon icon={faSpinner} spin /></span> : <span>Checkout with <FontAwesomeIcon icon={faCcStripe} /></span>}</button>
               </> 
-              : 
-              <></>}
+              :
+              null}
             </motion.div>
         </Backdrop>
     </div>
