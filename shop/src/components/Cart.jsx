@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSpinner, faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faFaceSmileWink, faSpinner, faXmark } from '@fortawesome/free-solid-svg-icons'
 
 import Backdrop from './Backdrop'
 import CartItem from './CartItem'
@@ -24,6 +24,19 @@ const Cart = ({ handleClose }) => {
 
   const cart = useContext(CartContext)
   const [isLoading, setIsLoading] = useState(false)
+  const [showDelayedMessage, setShowDelayedMessage] = useState(false);
+
+  useEffect(() => {
+    let timeoutId = null;
+    if (isLoading) {
+      timeoutId = setTimeout(() => {
+        setShowDelayedMessage(true);
+      }, 1000);
+    } else {
+      setShowDelayedMessage(false);
+    }
+    return () => clearTimeout(timeoutId);
+  }, [isLoading]);
   
   const checkout = async () => {
     try {
@@ -43,7 +56,7 @@ const Cart = ({ handleClose }) => {
         localStorage.removeItem('cartProducts');
       }
     } catch (error) {
-      console.log(error)
+      alert("Couldn't connect to the server. Try again later")
     } finally {
       setIsLoading(false)
     }
@@ -82,10 +95,15 @@ const Cart = ({ handleClose }) => {
               <>
                 <p className='font-semibold text-sm'>Subtotal: {cart.getSubTotal().toFixed(2)} CHF</p>
                 <button className='border border-gray-400 py-1 px-2 rounded-lg hover:scale-105 duration-200 text-xl font-bold mt-2' onClick={checkout}>{isLoading ? <span className='cursor-wait'>Loading <FontAwesomeIcon icon={faSpinner} spin /></span> : <span>Checkout</span>}</button>
-                <p className='italic text-xs pt-1'>Have you read the <a href="/info" className='font-bold'>Info?</a></p>
               </> 
               :
               null}
+              {isLoading && showDelayedMessage && (
+              <p className='italic'>
+                Sometimes server requests can take a little longer. If so, be patient{' '}
+                <FontAwesomeIcon icon={faFaceSmileWink} />
+              </p>
+              )}
             </motion.div>
         </Backdrop>
     </div>
