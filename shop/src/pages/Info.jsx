@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCcVisa, faCcMastercard, faCcApplePay, faGooglePay, faCcAmex } from '@fortawesome/free-brands-svg-icons'
+import { faCcVisa, faCcMastercard, faCcAmex, faCcDiscover, faCcDinersClub } from '@fortawesome/free-brands-svg-icons'
 
 const Info = () => {
   return (
@@ -21,13 +21,13 @@ const Info = () => {
       <div className='my-6'>
           <h1 className='text-xl md:text-2xl font-bold'>Payment methods</h1>
           <p className="md:text-xl">
-            Our payments are in CHF (Swiss Franc), because we are a Switzerland-based company. We accept the following payment methods:
+            Our payments are in CHF (Swiss Franc), because we are a Switzerland-based company. We accept the following credit cards as well as Apple Pay and Google Pay:
             <div className="flex justify-center text-4xl gap-4 my-2">
             <FontAwesomeIcon icon={faCcVisa} />
             <FontAwesomeIcon icon={faCcMastercard} />
-            <FontAwesomeIcon icon={faCcApplePay} />
             <FontAwesomeIcon icon={faCcAmex} />
-            <FontAwesomeIcon icon={faGooglePay} />
+            <FontAwesomeIcon icon={faCcDiscover} />
+            <FontAwesomeIcon icon={faCcDinersClub} />
             </div>
           </p>
       </div>

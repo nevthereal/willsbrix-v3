@@ -82,7 +82,7 @@ const Cart = ({ handleClose }) => {
               <>
                 <p className='font-semibold text-sm'>Subtotal: {cart.getSubTotal().toFixed(2)} CHF</p>
                 <button className='border border-gray-400 py-1 px-2 rounded-lg hover:scale-105 duration-200 text-xl font-bold mt-2' onClick={checkout}>{isLoading ? <span className='cursor-wait'>Loading <FontAwesomeIcon icon={faSpinner} spin /></span> : <span>Checkout</span>}</button>
-                <p className='italic text-xs pt-1'>Have you read the <a href="/info">Info?</a></p>
+                <p className='italic text-xs pt-1'>Have you read the <a href="/info" className='font-bold'>Info?</a></p>
               </> 
               :
               null}
