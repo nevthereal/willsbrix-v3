@@ -31,7 +31,7 @@ const Cart = ({ handleClose }) => {
     if (isLoading) {
       timeoutId = setTimeout(() => {
         setShowDelayedMessage(true);
-      }, 1000);
+      }, 1500);
     } else {
       setShowDelayedMessage(false);
     }
@@ -69,7 +69,7 @@ const Cart = ({ handleClose }) => {
         <Backdrop handleClose={handleClose}>
             <motion.div 
                 onClick={(e) => e.stopPropagation()}
-                className='w-[90%] h-fit max-h-[75%] bg-white dark:bg-gray-800 p-10 m-auto rounded-2xl overflow-auto z-[1] max-w-6xl'
+                className='w-[90%] h-fit max-h-[75%] bg-white dark:bg-gray-800 px-4 py-10 m-auto rounded-2xl overflow-auto z-[1] max-w-6xl'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -100,8 +100,7 @@ const Cart = ({ handleClose }) => {
               null}
               {isLoading && showDelayedMessage && (
               <p className='italic'>
-                Sometimes server requests can take a little longer. If so, be patient{' '}
-                <FontAwesomeIcon icon={faFaceSmileWink} />
+                Sometimes server requests can take a little longer. If so, be patient ...
               </p>
               )}
             </motion.div>
