@@ -1,88 +1,84 @@
-import { createContext, useEffect, useState } from "react"
-import { getProductData } from "./productList"
-import { useNavigate } from "react-router-dom"
+import { createContext, useEffect, useState } from "react";
+import { getProductData } from "./productList";
+import { useNavigate } from "react-router-dom";
 
 export const CartContext = createContext({
-    items: [],
-    addOneToCart: () => {},
-    removeFromCart: () => {},
-    isInCart: () => {},
-    getSubTotal: () => {},
-})
+  items: [],
+  addOneToCart: () => {},
+  removeFromCart: () => {},
+  isInCart: () => {},
+  getSubTotal: () => {},
+});
 
+export function CartProvider({ children }) {
+  let navigate = useNavigate();
+  const [message, setMessage] = useState("");
 
-export function CartProvider({children}) {
+  const getMessage = (item, action) => {
+    return `${item} was ${action} Cart`;
+  };
 
-    let navigate = useNavigate()
+  const [cartProducts, setCartProducts] = useState(() => {
+    const storedCartData = localStorage.getItem("cartProducts");
+    return storedCartData ? JSON.parse(storedCartData) : [];
+  });
 
-    const [cartProducts, setCartProducts] = useState(() => {
-        const storedCartData = localStorage.getItem("cartProducts");
-        return storedCartData ? JSON.parse(storedCartData) : [];
-    })
+  useEffect(() => {
+    localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
+  }, [cartProducts]);
 
-    useEffect(() => {
-        localStorage.setItem("cartProducts", JSON.stringify(cartProducts))
-    }, [cartProducts])
-    
-    const contextValue = {
-        items: cartProducts,
-        addOneToCart,
-        removeFromCart,
-        getSubTotal,
-        isInCart
+  const contextValue = {
+    items: cartProducts,
+    addOneToCart,
+    removeFromCart,
+    getSubTotal,
+    isInCart,
+    message,
+    setMessage,
+  };
+
+  function isInCart(id) {
+    return cartProducts.some((product) => product.id === id);
+  }
+
+  function addOneToCart(id) {
+    let itemName = getProductData(id).title;
+    if (!isInCart(id)) {
+      setCartProducts([
+        ...cartProducts,
+        {
+          id: id,
+          quantity: 1,
+        },
+      ]);
     }
+    setMessage(getMessage(itemName, "added to"));
+    navigate("/products");
+  }
 
-    function isInCart(id) {
-        return cartProducts.some((product) => product.id === id);
-    }
+  function removeFromCart(id) {
+    let itemName = getProductData(id).title;
+    setCartProducts((cartProducts) =>
+      cartProducts.filter((currentProduct) => {
+        return currentProduct.id != id;
+      })
+    );
+    setMessage(getMessage(itemName, "removed from"));
+  }
 
-    function addOneToCart(id) {
-        let itemName = getProductData(id).title
-        if(!isInCart(id)) {
-            setCartProducts(
-                [
-                    ...cartProducts,
-                    {
-                        id: id,
-                        quantity: 1
-                    }
-                ]
-            )
-        } else {
-            alert("Item is already in the Cart")
-        }
-        alert(`Item "${itemName}" was added to Cart`)
-        navigate("/products")
-    }
+  function getSubTotal() {
+    let subTotal = 0;
+    cartProducts.map((cartItem) => {
+      const productData = getProductData(cartItem.id);
+      subTotal += productData.price;
+    });
 
-    function removeFromCart(id) {
-        let itemName = getProductData(id).title
-        setCartProducts(
-            cartProducts => 
-            cartProducts.filter(
-                currentProduct => {
-                    return currentProduct.id != id
-                }
-            )
-        )
-        alert(`Item "${itemName}" was removed from Cart`)
-    }
+    return subTotal;
+  }
 
-    function getSubTotal() {
-        let subTotal = 0
-        cartProducts.map((cartItem) => {
-            const productData = getProductData(cartItem.id)
-            subTotal += productData.price
-        })
-
-        return subTotal
-    }
-
-    return (
-        <CartContext.Provider value={contextValue}>
-            {children}
-        </CartContext.Provider>
-    )
+  return (
+    <CartContext.Provider value={contextValue}>{children}</CartContext.Provider>
+  );
 }
 
-export default CartProvider
+export default CartProvider;
