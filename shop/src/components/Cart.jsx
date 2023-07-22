@@ -22,7 +22,13 @@ const fadeIn = {
   },
 };
 
-const Cart = ({ handleClose, handleSignIn, handleSignOut, auth }) => {
+const Cart = ({
+  handleClose,
+  handleGoogleSignIn,
+  handleSignOut,
+  handleAnonymSignIn,
+  auth,
+}) => {
   const cart = useContext(CartContext);
   const [isLoading, setIsLoading] = useState(false);
   const [showDelayedMessage, setShowDelayedMessage] = useState(false);
@@ -41,6 +47,7 @@ const Cart = ({ handleClose, handleSignIn, handleSignOut, auth }) => {
   }, [isLoading]);
 
   const checkout = async () => {
+    const userEmail = user.email;
     try {
       setIsLoading(true);
       const response = await fetch(
@@ -50,7 +57,7 @@ const Cart = ({ handleClose, handleSignIn, handleSignOut, auth }) => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ items: cart.items }),
+          body: JSON.stringify({ items: cart.items, userEmail }),
         }
       );
 
@@ -61,7 +68,7 @@ const Cart = ({ handleClose, handleSignIn, handleSignOut, auth }) => {
         localStorage.removeItem("cartProducts");
       }
     } catch (error) {
-      alert("Couldn't connect to the server. Try again later");
+      console.log(error);
     } finally {
       setIsLoading(false);
     }
@@ -78,10 +85,26 @@ const Cart = ({ handleClose, handleSignIn, handleSignOut, auth }) => {
           exit={{ opacity: 0 }}
           variants={fadeIn}
         >
-          <div className='flex justify-between'>
-            <h1 className='font-bold text-4xl'>Your Cart:</h1>
+          <div className='flex justify-between max-w-5xl mx-auto'>
+            <div className='text-left'>
+              <h1 className='font-bold text-4xl'>Your Cart:</h1>
+              <div className='flex gap-4'>
+                {user ? (
+                  <>
+                    <p>
+                      signed in{" "}
+                      {user.email ? (
+                        <span>as {user.email}</span>
+                      ) : (
+                        <span className='italic'>anonymously</span>
+                      )}
+                    </p>
+                  </>
+                ) : loading ? null : null}
+              </div>
+            </div>
             <FontAwesomeIcon
-              className='cursor-pointer text-xl'
+              className='cursor-pointer text-xl my-auto'
               icon={faXmark}
               onClick={handleClose}
             />
@@ -106,6 +129,21 @@ const Cart = ({ handleClose, handleSignIn, handleSignOut, auth }) => {
                   </>
                 )}
               </div>
+              {user.email ? (
+                <button
+                  onClick={handleSignOut}
+                  className='font-bold border border-gray-400 p-2 rounded-lg py-1 px-2'
+                >
+                  Sign Out
+                </button>
+              ) : (
+                <button
+                  onClick={handleGoogleSignIn}
+                  className='font-bold border border-gray-400 p-2 rounded-lg py-1 px-2'
+                >
+                  Sign in With Google
+                </button>
+              )}
 
               {cart.items.length > 0 ? (
                 <>
@@ -134,10 +172,21 @@ const Cart = ({ handleClose, handleSignIn, handleSignOut, auth }) => {
               )}
             </>
           ) : (
-            <>
-              <p>No user logged in</p>
-              <button onClick={handleSignIn}>Log in</button>
-            </>
+            <div className='my-4'>
+              <button
+                onClick={handleGoogleSignIn}
+                className='font-bold text-2xl border border-gray-400 p-2 rounded-lg py-1 px-2'
+              >
+                Log in with <span className='font-black'>Google</span>
+              </button>
+              <p>or</p>
+              <button
+                className='font-bold text-2xl border border-gray-400 p-2 rounded-lg py-1 px-2'
+                onClick={handleAnonymSignIn}
+              >
+                Sign in as a guest
+              </button>
+            </div>
           )}
         </motion.div>
       </Backdrop>

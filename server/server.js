@@ -12,6 +12,7 @@ DOMAIN = process.env.STORE_DOMAIN
 
 app.post("/checkout", async (req, res) => {
   const items = req.body.items
+  const userEmail = req.body.userEmail
   let lineItems = []
   items.forEach((item) => {
     lineItems.push({
@@ -27,6 +28,11 @@ app.post("/checkout", async (req, res) => {
     success_url: `${DOMAIN}/success`,
     cancel_url: `${DOMAIN}/cancel`,
   })
+
+  if (userEmail) {
+    session.customer_email = userEmail;
+  }
+
 
   res.json({ url: session.url })
 })

@@ -20,12 +20,13 @@ import {
   GoogleAuthProvider,
   getAuth,
   signOut,
+  signInAnonymously,
 } from "firebase/auth";
 
-const provider = new GoogleAuthProvider();
+const googleProvider = new GoogleAuthProvider();
 const auth = getAuth();
-const handleSignIn = () => {
-  signInWithPopup(auth, provider)
+const handleGoogleSignIn = () => {
+  signInWithPopup(auth, googleProvider)
     .then(() => {})
     .catch(() => {});
 };
@@ -35,13 +36,20 @@ const handleSignOut = () => {
     .catch(() => {});
 };
 
+const handleAnonymSignIn = () => {
+  signInAnonymously(auth)
+    .then(() => {})
+    .catch(() => {});
+};
+
 function App() {
   return (
     <div className='dark:bg-gray-800 dark:text-white'>
       <CartProvider>
         <Navbar
-          handleSignIn={handleSignIn}
+          handleGoogleSignIn={handleGoogleSignIn}
           handleSignOut={handleSignOut}
+          handleAnonymSignIn={handleAnonymSignIn}
           auth={auth}
         />
         <Popup>
