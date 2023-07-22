@@ -49,7 +49,7 @@ const Popup = ({ children }) => {
       {isVisible ? (
         <motion.div
           animate={animation}
-          className='fixed border bg-gray-200 border-gray-300 dark:bg-slate-700 dark:border-slate-600 bottom-0 md:right-0 m-6 p-4 rounded-2xl flex gap-2 shadow-xl shadow-gray-200/75 dark:shadow-slate-700/75'
+          className='fixed border bg-gray-200 border-gray-300 dark:bg-slate-700 dark:border-slate-600 bottom-0 md:right-0 m-6 p-4 rounded-2xl flex gap-2 shadow-xl shadow-gray-200/75 dark:shadow-slate-700/75 z-20'
         >
           <p className='font-bold text-xl md:text-base'>{message}</p>
           <FontAwesomeIcon

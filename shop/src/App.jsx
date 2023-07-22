@@ -14,11 +14,36 @@ import Success from "./pages/Success";
 import Cancel from "./pages/Cancel";
 import Popup from "./components/Popup";
 
+import { app } from "./firebase";
+import {
+  signInWithPopup,
+  GoogleAuthProvider,
+  getAuth,
+  signOut,
+} from "firebase/auth";
+
+const provider = new GoogleAuthProvider();
+const auth = getAuth();
+const handleSignIn = () => {
+  signInWithPopup(auth, provider)
+    .then(() => {})
+    .catch(() => {});
+};
+const handleSignOut = () => {
+  signOut(auth)
+    .then(() => {})
+    .catch(() => {});
+};
+
 function App() {
   return (
     <div className='dark:bg-gray-800 dark:text-white'>
       <CartProvider>
-        <Navbar />
+        <Navbar
+          handleSignIn={handleSignIn}
+          handleSignOut={handleSignOut}
+          auth={auth}
+        />
         <Popup>
           <Routes>
             <Route index element={<Home />} />
