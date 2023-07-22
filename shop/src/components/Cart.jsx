@@ -104,7 +104,7 @@ const Cart = ({
               </div>
             </div>
             <FontAwesomeIcon
-              className='cursor-pointer text-xl my-auto'
+              className='cursor-pointer text-xl my-auto hover:scale-105 duration-200'
               icon={faXmark}
               onClick={handleClose}
             />
@@ -129,22 +129,6 @@ const Cart = ({
                   </>
                 )}
               </div>
-              {user.email ? (
-                <button
-                  onClick={handleSignOut}
-                  className='font-bold border border-gray-400 p-2 rounded-lg py-1 px-2'
-                >
-                  Sign Out
-                </button>
-              ) : (
-                <button
-                  onClick={handleGoogleSignIn}
-                  className='font-bold border border-gray-400 p-2 rounded-lg py-1 px-2'
-                >
-                  Sign in With Google
-                </button>
-              )}
-
               {cart.items.length > 0 ? (
                 <>
                   <p className='font-semibold text-sm'>
@@ -170,18 +154,35 @@ const Cart = ({
                   patient ...
                 </p>
               )}
+              <div className='my-2'>
+                {user.email ? (
+                  <button
+                    onClick={handleSignOut}
+                    className='font-bold border border-gray-400 p-2 rounded-lg py-1 px-2 text-xl hover:scale-105 duration-200'
+                  >
+                    Sign Out
+                  </button>
+                ) : (
+                  <button
+                    onClick={handleGoogleSignIn}
+                    className='font-bold border border-gray-400 p-2 rounded-lg py-1 px-2 text-xl hover:scale-105 duration-200'
+                  >
+                    Sign in With Google
+                  </button>
+                )}
+              </div>
             </>
           ) : (
             <div className='my-4'>
               <button
                 onClick={handleGoogleSignIn}
-                className='font-bold text-2xl border border-gray-400 p-2 rounded-lg py-1 px-2'
+                className='font-bold text-2xl border border-gray-400 p-2 rounded-lg py-1 px-2 hover:scale-105 duration-200'
               >
                 Log in with <span className='font-black'>Google</span>
               </button>
               <p>or</p>
               <button
-                className='font-bold text-2xl border border-gray-400 p-2 rounded-lg py-1 px-2'
+                className='font-bold text-2xl border border-gray-400 p-2 rounded-lg py-1 px-2 hover:scale-105 duration-200'
                 onClick={handleAnonymSignIn}
               >
                 Sign in as a guest

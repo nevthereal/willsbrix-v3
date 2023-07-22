@@ -35,7 +35,7 @@ const Product = ({
               </button>
             ) : (
               <button
-                className='border border-gray-400 py-1 px-2 rounded-lg hover:scale-105 duration-200 text-lg font-bold'
+                className='border border-gray-400 py-1 px-2 rounded-lg hover:scale-105 duration-200 text-xl md:text-2xl font-bold'
                 onClick={() => cart.removeFromCart(id)}
               >
                 Remove from Cart

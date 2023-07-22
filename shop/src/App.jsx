@@ -15,6 +15,7 @@ import Cancel from "./pages/Cancel";
 import Popup from "./components/Popup";
 
 import { app } from "./firebase";
+
 import {
   signInWithPopup,
   GoogleAuthProvider,
