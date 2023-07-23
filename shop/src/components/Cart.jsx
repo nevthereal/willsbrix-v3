@@ -22,13 +22,7 @@ const fadeIn = {
   },
 };
 
-const Cart = ({
-  handleClose,
-  handleGoogleSignIn,
-  handleSignOut,
-  handleAnonymSignIn,
-  auth,
-}) => {
+const Cart = ({ handleClose, handleGoogleSignIn, handleSignOut, auth }) => {
   const cart = useContext(CartContext);
   const [isLoading, setIsLoading] = useState(false);
   const [showDelayedMessage, setShowDelayedMessage] = useState(false);
@@ -88,20 +82,6 @@ const Cart = ({
           <div className='flex justify-between max-w-5xl mx-auto'>
             <div className='text-left'>
               <h1 className='font-bold text-4xl'>Your Cart:</h1>
-              <div className='flex gap-4'>
-                {user ? (
-                  <>
-                    <p>
-                      signed in{" "}
-                      {user.email ? (
-                        <span>as {user.email}</span>
-                      ) : (
-                        <span className='italic'>anonymously</span>
-                      )}
-                    </p>
-                  </>
-                ) : loading ? null : null}
-              </div>
             </div>
             <FontAwesomeIcon
               className='cursor-pointer text-xl my-auto hover:scale-105 duration-200'
@@ -155,21 +135,15 @@ const Cart = ({
                 </p>
               )}
               <div className='my-2'>
-                {user.email ? (
-                  <button
-                    onClick={handleSignOut}
-                    className='font-bold border border-gray-400 p-2 rounded-lg py-1 px-2 text-xl hover:scale-105 duration-200'
-                  >
-                    Sign Out
-                  </button>
-                ) : (
-                  <button
-                    onClick={handleGoogleSignIn}
-                    className='font-bold border border-gray-400 p-2 rounded-lg py-1 px-2 text-xl hover:scale-105 duration-200'
-                  >
-                    Sign in With Google
-                  </button>
-                )}
+                <p className='mb-2 text-sm'>
+                  Signed in as <span className='italic'>{user.email}</span>
+                </p>
+                <button
+                  onClick={handleSignOut}
+                  className='font-bold border border-gray-400 p-2 rounded-lg py-1 px-2 text-xl hover:scale-105 duration-200'
+                >
+                  Sign Out
+                </button>
               </div>
             </>
           ) : (
@@ -179,13 +153,6 @@ const Cart = ({
                 className='font-bold text-2xl border border-gray-400 p-2 rounded-lg py-1 px-2 hover:scale-105 duration-200'
               >
                 Log in with <span className='font-black'>Google</span>
-              </button>
-              <p>or</p>
-              <button
-                className='font-bold text-2xl border border-gray-400 p-2 rounded-lg py-1 px-2 hover:scale-105 duration-200'
-                onClick={handleAnonymSignIn}
-              >
-                Sign in as a guest
               </button>
             </div>
           )}

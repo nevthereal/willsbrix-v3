@@ -21,7 +21,6 @@ import {
   GoogleAuthProvider,
   getAuth,
   signOut,
-  signInAnonymously,
 } from "firebase/auth";
 
 const googleProvider = new GoogleAuthProvider();
@@ -37,12 +36,6 @@ const handleSignOut = () => {
     .catch(() => {});
 };
 
-const handleAnonymSignIn = () => {
-  signInAnonymously(auth)
-    .then(() => {})
-    .catch(() => {});
-};
-
 function App() {
   return (
     <div className='dark:bg-gray-800 dark:text-white'>
@@ -50,7 +43,6 @@ function App() {
         <Navbar
           handleGoogleSignIn={handleGoogleSignIn}
           handleSignOut={handleSignOut}
-          handleAnonymSignIn={handleAnonymSignIn}
           auth={auth}
         />
         <Popup>
@@ -58,7 +50,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path='/products' element={<Products />} />
             <Route path='/info' element={<Info />} />
-            <Route path='/success' element={<Success />} />
+            <Route path='/success' element={<Success auth={auth} />} />
             <Route path='/cancel' element={<Cancel />} />
             {products.map((product, index) => (
               <Route
