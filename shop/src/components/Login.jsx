@@ -31,7 +31,7 @@ const Login = ({
   };
 
   return (
-    <div>
+    <div className='my-2'>
       {!signIn ? (
         <div>
           <div className='mb-2'>
@@ -45,7 +45,7 @@ const Login = ({
           </div>
           <form
             onSubmit={handleEmailSignUpSubmit}
-            className='flex flex-col gap-2 w-96 mx-auto'
+            className='flex flex-col gap-2 w-auto md:w-96 mx-auto'
           >
             <input
               type='text'
@@ -90,7 +90,7 @@ const Login = ({
           </div>
           <form
             onSubmit={handleEmailSignInSubmit}
-            className='flex flex-col gap-2 w-96 mx-auto'
+            className='flex flex-col gap-2 w-auto md:w-96 mx-auto'
           >
             <input
               type='email'
