@@ -59,6 +59,7 @@ const Login = ({
               placeholder='Password'
               className='py-1 px-2 rounded-lg border border-gray-300 dark:border-gray-500 bg-gray-200 dark:bg-gray-700'
             />
+            <p id='error-msg' className='text-xs text-red-500'></p>
             <button
               type='submit'
               className='font-bold text-md border border-gray-400 p-2 rounded-lg py-1 px-2 hover:scale-105 duration-200 mx-auto'
@@ -96,7 +97,7 @@ const Login = ({
               placeholder='Password'
               className='py-1 px-2 rounded-lg border border-gray-300 dark:border-gray-500 bg-gray-200 dark:bg-gray-700'
             />
-            <p id='notfound' className='text-red-500 text-xs'></p>
+            <p id='error-msg' className='text-xs text-red-500'></p>
             <button
               type='submit'
               className='font-bold text-md border border-gray-400 p-2 rounded-lg py-1 px-2 hover:scale-105 duration-200 mx-auto'

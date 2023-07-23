@@ -34,19 +34,51 @@ const handleGoogleSignIn = () => {
 };
 
 const handleEmailSignUp = (name, email, password) => {
-  createUserWithEmailAndPassword(auth, email, password);
-  const user = userCredential.user;
-  updateProfile(user, {
-    displayName: name,
-  })
-    .then(() => {})
-    .catch(() => {});
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      updateProfile(user, {
+        displayName: name,
+      }).then(() => {});
+    })
+    .catch((error) => {
+      let errorCode = error.code;
+      document.getElementById("error-msg").innerText = error.code;
+      switch (errorCode) {
+        case "auth/email-already-exists":
+          document.getElementById("error-msg").innerText =
+            "This email is already registred";
+          break;
+        case "auth/weak-password":
+          document.getElementById("error-msg").innerText =
+            "This password is too weak. Passwords must have over 6 characters";
+          break;
+        case "auth/invalid-email":
+          document.getElementById("error-msg").innerText = "Invalid Email";
+        default:
+          document.getElementById("error-msg").innerText =
+            "An error occured while trying to sign you in";
+          break;
+      }
+    });
 };
 const handleEmailSignIn = (email, password) => {
   signInWithEmailAndPassword(auth, email, password)
     .then(() => {})
-    .catch(() => {
-      document.getElementById("notfound").innerText = "User not found";
+    .catch((error) => {
+      let errorCode = error.code;
+      switch (errorCode) {
+        case "auth/user-not-found":
+          document.getElementById("error-msg").innerText = "User not found";
+          break;
+        case "auth/wrong-password":
+          document.getElementById("error-msg").innerText = "Wrong password";
+          break;
+        default:
+          document.getElementById("error-msg").innerText =
+            "An error occured while trying to sign you in";
+          break;
+      }
     });
 };
 
