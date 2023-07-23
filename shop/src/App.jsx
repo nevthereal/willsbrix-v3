@@ -21,6 +21,8 @@ import {
   GoogleAuthProvider,
   getAuth,
   signOut,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 
 const googleProvider = new GoogleAuthProvider();
@@ -30,6 +32,24 @@ const handleGoogleSignIn = () => {
     .then(() => {})
     .catch(() => {});
 };
+
+const handleEmailSignUp = (name, email, password) => {
+  createUserWithEmailAndPassword(auth, email, password);
+  const user = userCredential.user;
+  updateProfile(user, {
+    displayName: name,
+  })
+    .then(() => {})
+    .catch(() => {});
+};
+const handleEmailSignIn = (email, password) => {
+  signInWithEmailAndPassword(auth, email, password)
+    .then(() => {})
+    .catch(() => {
+      document.getElementById("notfound").innerText = "User not found";
+    });
+};
+
 const handleSignOut = () => {
   signOut(auth)
     .then(() => {})
@@ -42,6 +62,8 @@ function App() {
       <CartProvider>
         <Navbar
           handleGoogleSignIn={handleGoogleSignIn}
+          handleEmailSignIn={handleEmailSignIn}
+          handleEmailSignUp={handleEmailSignUp}
           handleSignOut={handleSignOut}
           auth={auth}
         />

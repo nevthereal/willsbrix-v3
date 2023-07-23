@@ -9,6 +9,7 @@ import CartItem from "./CartItem";
 import { CartContext } from "../cartContext";
 
 import { useAuthState } from "react-firebase-hooks/auth";
+import Login from "./LogIn";
 
 const fadeIn = {
   hidden: {
@@ -22,7 +23,14 @@ const fadeIn = {
   },
 };
 
-const Cart = ({ handleClose, handleGoogleSignIn, handleSignOut, auth }) => {
+const Cart = ({
+  handleClose,
+  handleGoogleSignIn,
+  handleSignOut,
+  handleEmailSignIn,
+  handleEmailSignUp,
+  auth,
+}) => {
   const cart = useContext(CartContext);
   const [isLoading, setIsLoading] = useState(false);
   const [showDelayedMessage, setShowDelayedMessage] = useState(false);
@@ -147,14 +155,11 @@ const Cart = ({ handleClose, handleGoogleSignIn, handleSignOut, auth }) => {
               </div>
             </>
           ) : (
-            <div className='my-4'>
-              <button
-                onClick={handleGoogleSignIn}
-                className='font-bold text-2xl border border-gray-400 p-2 rounded-lg py-1 px-2 hover:scale-105 duration-200'
-              >
-                Log in with <span className='font-black'>Google</span>
-              </button>
-            </div>
+            <Login
+              handleGoogleSignIn={handleGoogleSignIn}
+              handleEmailSignIn={handleEmailSignIn}
+              handleEmailSignUp={handleEmailSignUp}
+            />
           )}
         </motion.div>
       </Backdrop>

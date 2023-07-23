@@ -6,7 +6,14 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 import Cart from "./Cart";
 
-const Navbar = ({ handleGoogleSignIn, handleSignOut, auth }) => {
+const Navbar = ({
+  handleGoogleSignIn,
+  handleSignOut,
+  auth,
+  handleEmailSignIn,
+  handleEmailSignUp,
+  userNotFound,
+}) => {
   const [cartOpen, setCartOpen] = useState(false);
 
   const close = () => setCartOpen(false);
@@ -50,7 +57,10 @@ const Navbar = ({ handleGoogleSignIn, handleSignOut, auth }) => {
           cartOpen={cartOpen}
           handleClose={close}
           handleGoogleSignIn={handleGoogleSignIn}
+          handleEmailSignIn={handleEmailSignIn}
+          handleEmailSignUp={handleEmailSignUp}
           handleSignOut={handleSignOut}
+          userNotFound={userNotFound}
           auth={auth}
         />
       )}
