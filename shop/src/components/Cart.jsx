@@ -9,6 +9,7 @@ import CartItem from "./CartItem";
 import { CartContext } from "../cartContext";
 
 import { useAuthState } from "react-firebase-hooks/auth";
+import { sendEmailVerification } from "firebase/auth";
 import Login from "./Login";
 
 const fadeIn = {
@@ -34,7 +35,14 @@ const Cart = ({
   const cart = useContext(CartContext);
   const [isLoading, setIsLoading] = useState(false);
   const [showDelayedMessage, setShowDelayedMessage] = useState(false);
+  const [emailSent, setEmailSent] = useState(false);
   const [user, loading] = useAuthState(auth);
+
+  const sendVerificationMail = () => {
+    sendEmailVerification(auth.currentUser).then(() => {
+      setEmailSent(true);
+    });
+  };
 
   useEffect(() => {
     let timeoutId = null;
@@ -122,18 +130,30 @@ const Cart = ({
                   <p className='font-semibold text-sm'>
                     Subtotal: {cart.getSubTotal().toFixed(2)} CHF
                   </p>
-                  <button
-                    className='border border-gray-400 py-1 px-2 rounded-lg hover:scale-105 duration-200 text-xl font-bold mt-2'
-                    onClick={checkout}
-                  >
-                    {isLoading ? (
-                      <span className='cursor-wait'>
-                        Loading <FontAwesomeIcon icon={faSpinner} spin />
-                      </span>
-                    ) : (
-                      <span>Checkout</span>
-                    )}
-                  </button>
+                  {user.emailVerified ? (
+                    <button
+                      className='border border-gray-400 py-1 px-2 rounded-lg hover:scale-105 duration-200 text-xl font-bold mt-2'
+                      onClick={checkout}
+                    >
+                      {isLoading ? (
+                        <span className='cursor-wait'>
+                          Loading <FontAwesomeIcon icon={faSpinner} spin />
+                        </span>
+                      ) : (
+                        <span>Checkout</span>
+                      )}
+                    </button>
+                  ) : (
+                    <>
+                      {!emailSent ? (
+                        <button onClick={sendVerificationMail}>
+                          Verify your email before checking out, then refresh
+                        </button>
+                      ) : (
+                        <p>Email Sent! Check your inbox</p>
+                      )}
+                    </>
+                  )}
                 </>
               ) : null}
               {isLoading && showDelayedMessage && (
@@ -159,6 +179,7 @@ const Cart = ({
               handleGoogleSignIn={handleGoogleSignIn}
               handleEmailSignIn={handleEmailSignIn}
               handleEmailSignUp={handleEmailSignUp}
+              auth={auth}
             />
           )}
         </motion.div>

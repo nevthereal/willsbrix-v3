@@ -53,8 +53,9 @@ const handleEmailSignUp = (name, email, password) => {
           document.getElementById("error-msg").innerText =
             "This password is too weak. Passwords must have over 6 characters";
           break;
-        case "auth/invalid-email":
-          document.getElementById("error-msg").innerText = "Invalid Email";
+        case "auth/email-already-exists":
+          document.getElementById("error-msg").innerText =
+            "This email already exists";
         default:
           document.getElementById("error-msg").innerText =
             "An error occured while trying to sign you in";

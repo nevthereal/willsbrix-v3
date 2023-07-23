@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+import { sendPasswordResetEmail } from "firebase/auth";
 
 const Login = ({
   handleGoogleSignIn,
   handleEmailSignIn,
   handleEmailSignUp,
+  auth,
 }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [emailSent, setEmailSent] = useState(false);
 
   const [signIn, setSignIn] = useState(false);
 
@@ -19,6 +22,12 @@ const Login = ({
   const handleEmailSignInSubmit = (e) => {
     e.preventDefault();
     handleEmailSignIn(email, password);
+  };
+
+  const sendResetEmail = () => {
+    sendPasswordResetEmail(auth, email).then(() => {
+      setEmailSent(true);
+    });
   };
 
   return (
@@ -105,6 +114,13 @@ const Login = ({
               Sign In
             </button>
           </form>
+          {!emailSent ? (
+            <button className='text-sm' onClick={sendResetEmail}>
+              Forgot your password?
+            </button>
+          ) : (
+            <p className='text-sm'>Email Sent! Check your inbox</p>
+          )}
         </div>
       )}
       <p className='my-2'>or</p>
