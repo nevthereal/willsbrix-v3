@@ -9,7 +9,7 @@ import CartItem from "./CartItem";
 import { CartContext } from "../cartContext";
 
 import { useAuthState } from "react-firebase-hooks/auth";
-import Login from "./LogIn";
+import Login from "./Login";
 
 const fadeIn = {
   hidden: {
