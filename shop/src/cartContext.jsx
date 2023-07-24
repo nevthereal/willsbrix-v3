@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { getProductData } from "./productList";
+import { getProductData, products } from "./productList";
 import { useNavigate } from "react-router-dom";
 
 export const CartContext = createContext({
@@ -74,6 +74,26 @@ export function CartProvider({ children }) {
     });
 
     return subTotal;
+  }
+  useEffect(() => {
+    // Check and clean up the cart when the component mounts
+    cleanUpCart();
+  }, []);
+
+  // Function to check and clean up the cart
+  function cleanUpCart() {
+    const updatedCartProducts = cartProducts.filter((cartItem) => {
+      const productExists = products.some(
+        (product) => product.id === cartItem.id
+      );
+      return productExists;
+    });
+
+    // If the cart was modified during cleanup, update the cartProducts and the localStorage
+    if (updatedCartProducts.length !== cartProducts.length) {
+      setCartProducts(updatedCartProducts);
+      localStorage.setItem("cartProducts", JSON.stringify(updatedCartProducts));
+    }
   }
 
   return (

@@ -19,9 +19,6 @@ import dd_2 from './assets/original/droideka.png'
 import rc_main from './assets/rancor.png'
 import rc_1 from './assets/rancor_side.png'
 import rc_2 from './assets/original/rancor.png'
-import ss_main from './assets/swampspeeder_front.png'
-import ss_1 from './assets/swampspeeder_back.png'
-import ss_2 from './assets/original/swampspeeder.png'
 
 export const products = [
     {
@@ -101,19 +98,6 @@ export const products = [
         img_main:dd_main, 
         img_1: dd_1, 
         img_2: dd_2,
-    },
-    {
-        id: import.meta.env.VITE_PRODUCT_SS,
-        link: "swamp-speeder",
-        title: "Republic Swamp Speeder",
-        price: 10,
-        designer: "Neville",
-        description: "The Republic Swamp Speeder or Infantry Support Platform (short ISP) grants protection for your troops on Felucia or other planets. It is highly-detailed.",
-        parts: 104,
-        blPrice: 40,
-        img_main:ss_main, 
-        img_1: ss_1, 
-        img_2: ss_2,
     },
     {
         id: import.meta.env.VITE_PRODUCT_RC,
