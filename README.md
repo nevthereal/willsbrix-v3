@@ -10,6 +10,7 @@ The official repository of [willsbrix.com](https://willsbrix.com)! This reposito
 - Font Awesome (Icons)
 - Framer-Motion
 ### Backend
+- Firebase
 - Node.js
 - Express
 - Stripe
