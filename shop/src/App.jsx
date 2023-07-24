@@ -53,9 +53,6 @@ const handleEmailSignUp = (name, email, password) => {
           document.getElementById("error-msg").innerText =
             "This password is too weak. Passwords must have over 6 characters";
           break;
-        case "auth/email-already-exists":
-          document.getElementById("error-msg").innerText =
-            "This email already exists";
         default:
           document.getElementById("error-msg").innerText =
             "An error occured while trying to sign you in";
@@ -74,6 +71,9 @@ const handleEmailSignIn = (email, password) => {
           break;
         case "auth/wrong-password":
           document.getElementById("error-msg").innerText = "Wrong password";
+          break;
+        case "auth/too-many-requests":
+          document.getElementById("error-msg").innerText = "Too many requests";
           break;
         default:
           document.getElementById("error-msg").innerText =

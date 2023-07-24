@@ -7,25 +7,35 @@ const Login = ({
   handleEmailSignUp,
   auth,
 }) => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [emailSent, setEmailSent] = useState(false);
+  const [signUpForm, setSignUpForm] = useState({
+    email: "",
+    password: "",
+    userName: "",
+  });
+  const [signInForm, setSignInForm] = useState({
+    email: "",
+    password: "",
+  });
 
+  const [emailSent, setEmailSent] = useState(false);
   const [signIn, setSignIn] = useState(false);
 
   const handleEmailSignUpSubmit = (e) => {
     e.preventDefault();
-    handleEmailSignUp(name, email, password);
+    handleEmailSignUp(
+      signUpForm.userName,
+      signUpForm.email,
+      signUpForm.password
+    );
   };
 
   const handleEmailSignInSubmit = (e) => {
     e.preventDefault();
-    handleEmailSignIn(email, password);
+    handleEmailSignIn(signInForm.email, signInForm.password);
   };
 
   const sendResetEmail = () => {
-    sendPasswordResetEmail(auth, email).then(() => {
+    sendPasswordResetEmail(auth, signInForm.email).then(() => {
       setEmailSent(true);
     });
   };
@@ -49,22 +59,28 @@ const Login = ({
           >
             <input
               type='text'
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={setSignUpForm.userName}
+              onChange={(e) =>
+                setSignUpForm({ ...signUpForm, userName: e.target.value })
+              }
               placeholder='Name'
               className='py-1 px-2 rounded-lg border border-gray-300 dark:border-gray-500 bg-gray-200 dark:bg-gray-700'
             />
             <input
               type='email'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={setSignUpForm.email}
+              onChange={(e) =>
+                setSignUpForm({ ...signUpForm, email: e.target.value })
+              }
               placeholder='Email'
               className='py-1 px-2 rounded-lg border border-gray-300 dark:border-gray-500 bg-gray-200 dark:bg-gray-700'
             />
             <input
               type='password'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={setSignUpForm.password}
+              onChange={(e) =>
+                setSignUpForm({ ...signUpForm, password: e.target.value })
+              }
               placeholder='Password'
               className='py-1 px-2 rounded-lg border border-gray-300 dark:border-gray-500 bg-gray-200 dark:bg-gray-700'
             />
@@ -94,15 +110,19 @@ const Login = ({
           >
             <input
               type='email'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={signInForm.email}
+              onChange={(e) =>
+                setSignInForm({ ...signInForm, email: e.target.value })
+              }
               placeholder='Email'
               className='py-1 px-2 rounded-lg border border-gray-300 dark:border-gray-500 bg-gray-200 dark:bg-gray-700'
             />
             <input
               type='password'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={signInForm.password}
+              onChange={(e) =>
+                setSignInForm({ ...signInForm, password: e.target.value })
+              }
               placeholder='Password'
               className='py-1 px-2 rounded-lg border border-gray-300 dark:border-gray-500 bg-gray-200 dark:bg-gray-700'
             />

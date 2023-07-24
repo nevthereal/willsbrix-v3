@@ -146,11 +146,16 @@ const Cart = ({
                   ) : (
                     <>
                       {!emailSent ? (
-                        <button onClick={sendVerificationMail}>
+                        <button
+                          onClick={sendVerificationMail}
+                          className='text-md mt-2 font-bold'
+                        >
                           Verify your email before checking out, then refresh
                         </button>
                       ) : (
-                        <p>Email Sent! Check your inbox</p>
+                        <p className='text-md mt-2'>
+                          Email Sent! Check your inbox
+                        </p>
                       )}
                     </>
                   )}
