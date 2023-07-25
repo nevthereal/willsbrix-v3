@@ -6,8 +6,10 @@ import {
   faCcAmex,
   faCcDiscover,
   faCcDinersClub,
+  faGooglePay,
+  faCcJcb,
+  faApplePay,
 } from "@fortawesome/free-brands-svg-icons";
-import { useAuthState } from "react-firebase-hooks/auth";
 
 const Info = () => {
   return (
@@ -31,18 +33,16 @@ const Info = () => {
           <a href='https://stripe.com' className='font-bold'>
             Stripe
           </a>
-          . If you are signed in with Google, the partlist will be sent to you
-          via your provided email adress. If you are signed in anonymously (as a
-          guest), you will have to provide an email at checkout. We will then
-          send the instruction(s) and a partlist file(s) to this email.
+          . We will then send the instruction(s) and a partlist file(s) to your
+          email. This email is either your address related to your Google
+          Account or your email, which you need to confirm first.
         </p>
       </div>
       <div className='my-6'>
         <h1 className='text-xl md:text-2xl font-bold'>Payment methods</h1>
         <p className='md:text-xl'>
           Our payments are in CHF (Swiss Franc), because we are a
-          Switzerland-based company. We accept the following credit cards as
-          well as Apple Pay and Google Pay:
+          Switzerland-based company. We accept the following credit cards:
           <ul className='flex justify-center text-4xl gap-4 my-2'>
             <li>
               <FontAwesomeIcon icon={faCcVisa} />
@@ -58,6 +58,18 @@ const Info = () => {
             </li>
             <li>
               <FontAwesomeIcon icon={faCcDinersClub} />
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faCcJcb} />
+            </li>
+          </ul>
+          And following wallets:
+          <ul className='flex justify-center text-4xl gap-4 my-2'>
+            <li>
+              <FontAwesomeIcon icon={faApplePay} />
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faGooglePay} />
             </li>
           </ul>
         </p>
